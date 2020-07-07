@@ -22,10 +22,23 @@ textarea {
 }
 
 .search {
-    width: 100%;
+    width: 80%;
     font-size: 15px;
     line-height: 15px;
+    float: left;
 }
+
+.custom-btn {
+    max-width: 100%;
+    padding-left:25px;
+    padding-right:25px;
+}
+
+.form-inline {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 
 .sidebar {
     background-color: #f0f0f0;
