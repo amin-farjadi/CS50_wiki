@@ -6,8 +6,8 @@
 
 {% block body %}
 
-    <form action="">
-        <input type="submit" value="Go to Google" />
+    <form action="{% url 'edit' title %}" method="GET">
+        <input type="submit" value="Edit" />
     </form>
 
     {{ entries|safe }}

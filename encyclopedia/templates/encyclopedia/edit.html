@@ -7,7 +7,7 @@
 {% block body %}
     <h1>{{title}}</h1>
 
-    <form action="update" method="post">
+    <form action="{% url 'update' title %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit">

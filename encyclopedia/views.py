@@ -9,8 +9,7 @@ class NewPage(forms.Form):
     entry = forms.CharField(widget=forms.Textarea)
 
 class Edit(forms.Form):
-    title = forms.CharField(label="Page Title")
-    entry = forms.CharField(widget=forms.Textarea value="this")
+    entry = forms.CharField(widget=forms.Textarea)
 
 
 def index(request, entries=util.list_entries()):
@@ -88,23 +87,26 @@ def page_creation(request):
     return redirect('title', title=page_title)
     
 def edit(request, title):
+    md = util.get_entry(title)
+    form = Edit(
+        initial={'title': title,'entry': md},
+    )
     return render(request, "encyclopedia/edit.html", {
-        "form": Edit
+        "title": title,
+        "form": form
     })
 
-def update(request):
+def update(request, title):
     if request.method == "GET":
         return render(request, "encyclopedia/error.html", {"msg": "Page cannot be accessed"})
 
     form = Edit(request.POST)
 
-    if form.is_valid:
-        title = form.cleaned_data["title"]
+    if form.is_valid():
         entry = form.cleaned_data["entry"]
-
     # edit the page
     with open(rf'entries/{title}.md', 'w') as file:
-        file.write(page_entry)
+        file.write(entry)
     
     return redirect('title', title=title)
 
