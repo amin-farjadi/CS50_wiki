@@ -1,4 +1,5 @@
 {% extends "encyclopedia/layout.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     Edit
@@ -7,9 +8,9 @@
 {% block body %}
     <h1>{{title}}</h1>
 
-    <form action="{% url 'update' title %}" method="post">
+    <form action="{% url 'update' title %}" method="post" class="col-lg-10 col-md-9">
         {% csrf_token %}
-        <p>{{ form.entry }}</p>
+        {{ form|crispy }}
         <input type="submit" value="Submit">
     </form>
 

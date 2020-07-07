@@ -25,6 +25,7 @@ textarea {
     font-size: 15px;
     line-height: 15px;
     float: left;
+    margin-left: auto;
 }
 
 .form-inline {
