@@ -13,10 +13,10 @@
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
                 <h2>Wiki</h2>
-                <form class="d-flex align-items-center flex-nowrap" action="{% url 'search' %}" method="POST">
+                <form class="d-flex align-items-left flex-nowrap" action="{% url 'search' %}" method="POST">
                     {% csrf_token %}
-                    <input class="search mr-2" type="text" name="search" placeholder="Search Encyclopedia">
-                    <button class="btn custom-btn" type="submit"><i class="fa fa-search"></i></button>
+                    <input class="search mr-2 col-lg-10 col-md-10" type="text" name="search" placeholder="Search Encyclopedia">
+                    <button class="btn custom-btn col-lg-2 col-md-2" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 <div>
                     <a href="{% url 'index' %}">Home</a>
@@ -25,7 +25,7 @@
                     <a href="{% url 'page_submission' %}">New Page</a>
                 </div>
                 <div>
-                    Random Page
+                    <a href="{% url 'random_page' %}">Random Page</a>
                 </div>
                 {% block nav %}
                 {% endblock %}

@@ -3,12 +3,17 @@ from . import util
 import markdown
 from django import forms
 import re
+import random
 
 class NewPage(forms.Form):
+    error_css_class = 'error'
+    required_css_class = 'required'
     title = forms.CharField(label="Page Title")
     entry = forms.CharField(widget=forms.Textarea)
 
 class Edit(forms.Form):
+    error_css_class = 'error'
+    required_css_class = 'required'
     entry = forms.CharField(widget=forms.Textarea)
 
 
@@ -109,6 +114,12 @@ def update(request, title):
         file.write(entry)
     
     return redirect('title', title=title)
+
+def random_page(request):
+
+    entries=util.list_entries()
+    entry = random.choice(entries)
+    return redirect('title', entry)
 
 
     

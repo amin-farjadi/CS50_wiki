@@ -9,7 +9,8 @@
 
     <form action="page_creation" method="post">
         {% csrf_token %}
-        {{ form }}
+        <p>{{form.title}}</p>
+        <p>{{ form.entry }}</p>
         <input type="submit" value="Submit">
     </form>
 

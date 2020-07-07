@@ -9,7 +9,7 @@
 
     <form action="{% url 'update' title %}" method="post">
         {% csrf_token %}
-        {{ form }}
+        <p>{{ form.entry }}</p>
         <input type="submit" value="Submit">
     </form>
 

@@ -22,16 +22,9 @@ textarea {
 }
 
 .search {
-    width: 80%;
     font-size: 15px;
     line-height: 15px;
     float: left;
-}
-
-.custom-btn {
-    max-width: 100%;
-    padding-left:25px;
-    padding-right:25px;
 }
 
 .form-inline {
